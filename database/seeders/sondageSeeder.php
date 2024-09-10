@@ -2,7 +2,7 @@
 
 namespace Database\Seeders;
 
-use App\Models\sondage;
+use App\Models\Sondage;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 

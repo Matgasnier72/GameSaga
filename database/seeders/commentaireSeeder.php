@@ -2,7 +2,8 @@
 
 namespace Database\Seeders;
 
-use App\Models\commentaire;
+use App\Models\Commentaire;
+use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -13,12 +14,17 @@ class commentaireSeeder extends Seeder
      */
     public function run(): void
     {
-        commentaire::create([
+        $users = User::all();
+        Commentaire::create([
             'article_id' => 1,
             'user_id' => 3,
             "contenu" => "genial ce jeu",
             "note" => 20,
-            "statut" => "ok",
+            "status" => "ok",
         ]);
+        Commentaire::factory()
+            ->count(30)
+            ->hasAttached($users, ['active' => true], 'likes')
+            ->create();
     }
 }

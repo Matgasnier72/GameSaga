@@ -5,7 +5,24 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class article extends Model
+class Article extends Model
 {
     use HasFactory;
+
+    public function images()
+    {
+        return $this -> hasMany(Image::class);
+    }
+    public function author()
+    {
+        return $this -> belongsTo(User::class);
+    }
+    public function commentaires()
+    {
+        return $this -> hasMany(Commentaire::class);
+    }
+    public function genres()
+    {
+        return $this -> belongsToMany(Genre::class);
+    }
 }
