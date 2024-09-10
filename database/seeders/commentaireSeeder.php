@@ -14,7 +14,7 @@ class commentaireSeeder extends Seeder
      */
     public function run(): void
     {
-        $users = User::all();
+        //$users = User::all();
         Commentaire::create([
             'article_id' => 1,
             'user_id' => 3,
@@ -22,9 +22,9 @@ class commentaireSeeder extends Seeder
             "note" => 20,
             "status" => "ok",
         ]);
-        Commentaire::factory()
-            ->count(30)
-            ->hasAttached($users, ['active' => true], 'likes')
+        Commentaire::factory(30)
+            //->count(30)
+            //->hasAttached($users, ['active' => true], 'likes')
             ->create();
     }
 }
