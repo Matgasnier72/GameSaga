@@ -16,9 +16,9 @@ return new class extends Migration
             $table->timestamps();
             $table->string('titre');
             $table->text('contenu');
-            $table->enum('status',['ok','à modifier', 'banni']);
+            $table->enum('status', ['ok', 'à modifier', 'banni']);
             $table->integer('note_auteur');
-            $table->foreignId('user_id');
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
         });
     }
 

@@ -15,10 +15,10 @@ return new class extends Migration
             $table->id();
             $table->text('contenu');
             $table->integer('note');
-            $table->enum('status',['ok','signaler', 'banni']);
+            $table->enum('status', ['ok', 'signaler', 'banni']);
             $table->timestamps();
-            $table->foreignId('article_id');
-            $table->foreignId('user_id');
+            $table->foreignId('article_id')->constrained()->onDelete('cascade');
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
         });
     }
 

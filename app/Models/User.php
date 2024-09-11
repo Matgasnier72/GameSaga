@@ -48,24 +48,26 @@ class User extends Authenticatable
     }
     public function role()
     {
-        return $this -> belongsTo(Role::class);
+        return $this->belongsTo(Role::class);
     }
 
     public function commentaires()
     {
-        return $this -> hasMany(Commentaire::class);
+        return $this->hasMany(Commentaire::class);
     }
+
     public function likes()
     {
-        return $this -> belongsToMany(Commentaire::class);
+        return $this->belongsToMany(Commentaire::class);
     }
 
     public function messages()
     {
-        return $this -> hasMany(Message::class);
+        return $this->hasMany(Message::class);
     }
+
     public function articles()
     {
-        return $this -> hasMany(Article::class);
+        return $this->hasMany(Article::class);
     }
 }

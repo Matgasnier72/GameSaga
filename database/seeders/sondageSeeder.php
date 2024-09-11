@@ -3,17 +3,16 @@
 namespace Database\Seeders;
 
 use App\Models\Sondage;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
-class sondageSeeder extends Seeder
+class SondageSeeder extends Seeder
 {
     /**
      * Run the database seeds.
      */
     public function run(): void
     {
-        sondage::create([
+        Sondage::create([
             'auteur_id' => 1,
             'titre' => 'star wars',
             'question' => 'vous aimer la post-logie star wars?',

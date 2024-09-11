@@ -8,16 +8,17 @@ use Illuminate\Database\Eloquent\Model;
 class Commentaire extends Model
 {
     use HasFactory;
+
     public function article()
     {
-        return $this -> belongsTo(Article::class);
+        return $this->belongsTo(Article::class);
     }
     public function user()
     {
-        return $this -> belongsTo(User::class);
+        return $this->belongsTo(User::class);
     }
     public function likes()
     {
-        return $this -> belongsToMany(User::class);
+        return $this->belongsToMany(User::class);
     }
 }
