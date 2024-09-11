@@ -11,18 +11,18 @@ class Article extends Model
 
     public function images()
     {
-        return $this -> hasMany(Image::class);
+        return $this->hasMany(Image::class);
     }
     public function author()
     {
-        return $this -> belongsTo(User::class);
+        return $this->belongsTo(User::class);
     }
     public function commentaires()
     {
-        return $this -> hasMany(Commentaire::class);
+        return $this->hasMany(Commentaire::class);
     }
     public function genres()
     {
-        return $this -> belongsToMany(Genre::class);
+        return $this->belongsToMany(Genre::class);
     }
 }

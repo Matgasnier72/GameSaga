@@ -15,9 +15,9 @@ return new class extends Migration
             $table->id();
             $table->string('nom');
             $table->text('description');
-            $table->enum('statut',['ok','à modifier', 'banni']);
+            $table->enum('statut', ['ok', 'à modifier', 'banni']);
             $table->timestamps();
-            $table->foreignId('article_id');
+            $table->foreignId('article_id')->constrained()->onDelete('cascade');
         });
     }
 

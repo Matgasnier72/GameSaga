@@ -13,10 +13,11 @@ return new class extends Migration
     {
         Schema::create('commentaire_user', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBiginteger('user_id')->unsigned();
-            $table->unsignedBiginteger('commentaire_id')->unsigned();
+            $table->unsignedBiginteger('user_id');
+            $table->unsignedBiginteger('commentaire_id');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->foreign('commentaire_id')->references('id')->on('commentaires')->onDelete('cascade');
+            $table->unique(['user_id', 'commentaire_id']);
         });
     }
 

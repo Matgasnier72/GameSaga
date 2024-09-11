@@ -3,31 +3,30 @@
 namespace Database\Seeders;
 
 use App\Models\User;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
-class userSeeder extends Seeder
+class UserSeeder extends Seeder
 {
     /**
      * Run the database seeds.
      */
     public function run(): void
     {
-        user::create([
+        User::create([
             'pseudo' => 'administrateur',
             'email' => 'admin@admin.net',
             'password' => 'test_Laravel_project',
             'statut' => 'ok',
             'role_id' => 3
         ]);
-        user::create([
+        User::create([
             'pseudo' => 'redacteur',
             'email' => 'redac@admin.net',
             'password' => 'test_Laravel_project',
             'statut' => 'ok',
             'role_id' => 2
         ]);
-        user::create([
+        User::create([
             'pseudo' => 'user',
             'email' => 'user@admin.net',
             'password' => 'test_Laravel_project',
