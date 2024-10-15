@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('images', function (Blueprint $table) {
             $table->id();
             $table->string('nom');
+            $table->string('path');
             $table->text('description');
             $table->enum('statut', ['ok', 'à modifier', 'banni']);
             $table->timestamps();

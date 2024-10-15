@@ -16,7 +16,8 @@ class ImageSeeder extends Seeder
             'nom' => "png.png",
             'description' => 'les lettres PNG au format png',
             'article_id' => 1,
-            'statut' => 'ok'
+            'statut' => 'ok',
+            'path' => '/'
         ]);
     }
 }

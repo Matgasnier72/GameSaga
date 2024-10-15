@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Article;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+
 
 class ArticleController extends Controller
 {
@@ -16,40 +18,40 @@ class ArticleController extends Controller
     }
     public function store(Request $request)
     {
-        $credentials = $request->validate([
-            'titre' => 'required|string',
-            'contenu' => 'required|text',
-            'note_auteur' => 'required|int',
-            'user_id' => 'required|int',
+        $validation = $request->validate([
+            'titre' => 'bail|required|string|max:255',
+            'contenu' => 'bail|required|string',
+            'note_auteur' => 'bail|required|int'
         ]);
-        $article = Article::create($request->all());
-            // On retourne les informations du nouvel utilisateur en JSON
-            return response()->json([
+        $article = new Article();
+        $article->fill($validation);
+        $article->user_id = Auth::user()->id;
+        $article->save();
+        // On retourne les informations du nouvel utilisateur en JSON
+        return response()->json([
             'status' => 'Success',
             'data' => $article,
-            ]);
-        
+        ]);
     }
     public function show(Article $article)
     {
         return response()->json($article);
     }
-    public function update(Request $request)
+    public function update(Article $article, Request $request)
     {
-        $credentials = $request->validate([
-            'titre' => 'required|string',
-            'contenu' => 'required|text',
-            'note_auteur' => 'required|int',
-            'user_id' => 'required|int',
+        $validation = $request->validate([
+            'titre' => 'bail|string',
+            'contenu' => 'bail|string',
+            'note_auteur' => 'bail|int',
         ]);
 
-        $article = Article::update($request->all());
-            // On retourne les informations du nouvel utilisateur en JSON
-            return response()->json([
+        $article->fill($validation);
+        $article->save();
+        // On retourne les informations du nouvel utilisateur en JSON
+        return response()->json([
             'status' => 'Success',
             'data' => $article,
-            ]);
-        
+        ]);
     }
     public function destroy(Article $article)
     {

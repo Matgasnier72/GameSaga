@@ -19,8 +19,9 @@ return new class extends Migration
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
+            $table->string('role');
             $table->enum('statut',['ok','signaler', 'banni']);
-            $table->foreignId('role_id')->default(1)->constraigned();
+            //$table->foreignId('role_id')->default(1)->constraigned();
         });
 
         Schema::create('password_reset_tokens', function (Blueprint $table) {

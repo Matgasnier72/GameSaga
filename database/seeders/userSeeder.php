@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Enums\RoleEnum;
 use App\Models\User;
 use Illuminate\Database\Seeder;
 
@@ -17,21 +18,21 @@ class UserSeeder extends Seeder
             'email' => 'admin@admin.net',
             'password' => 'test_Laravel_project',
             'statut' => 'ok',
-            'role_id' => 3
+            'role' => RoleEnum::ROLE_ADMIN
         ]);
         User::create([
             'pseudo' => 'redacteur',
             'email' => 'redac@admin.net',
             'password' => 'test_Laravel_project',
             'statut' => 'ok',
-            'role_id' => 2
+            'role' => RoleEnum::ROLE_REDACTEUR
         ]);
         User::create([
             'pseudo' => 'user',
             'email' => 'user@admin.net',
             'password' => 'test_Laravel_project',
             'statut' => 'ok',
-            'role_id' => 1
+            'role' => RoleEnum::ROLE_USER
         ]);
     }
 }

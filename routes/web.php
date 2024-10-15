@@ -7,3 +7,5 @@ Route::get('/', function () {
     return view('welcome');
 });
  Route::post('/authenticate',[LoginController::class, 'authenticate'])->name('authenticate');
+ Route::post('/logout',[LoginController::class, 'logout'])->name('logout');
+ 

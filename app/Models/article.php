@@ -9,6 +9,12 @@ class Article extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'titre',
+        'contenu',
+        'note_auteur',
+    ];
+
     public function images()
     {
         return $this->hasMany(Image::class);
